@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: our-service     # ReplicaSet name
+  namespace: default
+spec:
+  replicas: 3           # Replica count
+  selector:
+    matchLabels:
+      app: our-service
+  template:
+    metadata:
+      labels:
+        app: our-service
+    spec:
+      containers:
+      - name: service
+        image: nginx

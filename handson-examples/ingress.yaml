@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: my-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - host: our-app.example
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: our-service
+          servicePort: 80
