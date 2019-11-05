@@ -3,6 +3,8 @@ kind: Pod
 metadata:
   name: our-first-pod
   namespace: default
+  labels:
+    env: development
 spec:
   containers:
   - name: service
