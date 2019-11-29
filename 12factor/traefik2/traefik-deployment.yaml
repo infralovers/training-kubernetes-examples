@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: traefik
 spec:
-  clusterIP: 10.152.183.142
+  type: NodePort
   ports:
     - protocol: TCP
       name: web
