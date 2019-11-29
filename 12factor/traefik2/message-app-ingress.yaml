@@ -1,3 +1,4 @@
+---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
@@ -7,11 +8,11 @@ spec:
   entryPoints:
     - web
   routes:
-  - match: Host(`testhost.commandemy.training`) && PathPrefix(`/`)
-    kind: Rule
-    services:
-    - name: message-app
-      port: 8080
+    - match: Host(`testhost.commandemy.training`) && PathPrefix(`/`)
+      kind: Rule
+      services:
+        - name: message-app
+          port: 8080
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
@@ -25,8 +26,8 @@ spec:
   tls:
     certResolver: default
   routes:
-  - match: Host(`testhost.commandemy.training`) && PathPrefix(`/`)
-    kind: Rule
-    services:
-    - name: message-app
-      port: 8080
+    - match: Host(`testhost.commandemy.training`) && PathPrefix(`/`)
+      kind: Rule
+      services:
+        - name: message-app
+          port: 8080

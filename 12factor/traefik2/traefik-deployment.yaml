@@ -17,12 +17,6 @@ spec:
   selector:
     app: traefik
 ---
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  namespace: default
-  name: traefik-ingress-controller
----
 kind: Deployment
 apiVersion: apps/v1
 metadata:
@@ -66,6 +60,6 @@ spec:
             - mountPath: /etc/traefik/acme/
               name: certificates
       volumes:
-      - name: certificates
-        persistentVolumeClaim:
-          claimName: traefik-certificates
+        - name: certificates
+          persistentVolumeClaim:
+            claimName: traefik-certificates
