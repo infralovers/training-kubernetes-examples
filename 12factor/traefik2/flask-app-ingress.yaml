@@ -8,11 +8,11 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`testhost.commandemy.training`) && PathPrefix(`/`)
+    - match: Host(`host-X-XX.commandemy.training`) && PathPrefix(`/`)
       kind: Rule
       services:
-        - name: message-app
-          port: 8080
+        - name: flask-app
+          port: 80
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
@@ -26,8 +26,8 @@ spec:
   tls:
     certResolver: default
   routes:
-    - match: Host(`testhost.commandemy.training`) && PathPrefix(`/`)
+    - match: Host(`host-X-XX.commandemy.training`) && PathPrefix(`/`)
       kind: Rule
       services:
-        - name: message-app
-          port: 8080
+        - name: flask-app
+          port: 80

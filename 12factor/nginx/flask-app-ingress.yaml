@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: flask-app
+spec:
+  rules:
+    - host: host-X-XX.commandemy.training
+      http:
+        paths:
+          - backend:
+              serviceName: flask-app
+              servicePort: 80
