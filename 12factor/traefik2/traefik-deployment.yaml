@@ -46,7 +46,7 @@ spec:
             - --entrypoints.websecure.Address=:443
             - --providers.kubernetescrd
             - --certificatesresolvers.default.acme.tlschallenge
-            - --certificatesresolvers.default.acme.email=mbuchleitner@infralovers.com
+            - --certificatesresolvers.default.acme.email=team@infralovers.com
             - --certificatesresolvers.default.acme.storage=/etc/traefik/acme/acme.json
             - --certificatesresolvers.default.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
           ports:
