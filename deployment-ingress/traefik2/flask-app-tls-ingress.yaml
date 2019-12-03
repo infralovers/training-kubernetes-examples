@@ -2,11 +2,13 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: simpleingressroute
+  name: ingressroutetls
   namespace: default
 spec:
   entryPoints:
-    - web
+    - websecure
+  tls:
+    certResolver: default
   routes:
     - match: Host(`host-X-XX.commandemy.training`) && PathPrefix(`/`)
       kind: Rule

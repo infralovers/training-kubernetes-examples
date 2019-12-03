@@ -27,6 +27,10 @@ spec:
             - --entrypoints.web.Address=:80
             - --entrypoints.websecure.Address=:443
             - --providers.kubernetescrd
+            - --certificatesresolvers.default.acme.tlschallenge
+            - --certificatesresolvers.default.acme.email=team@infralovers.com
+            - --certificatesresolvers.default.acme.storage=/etc/traefik/acme/acme.json
+            - --certificatesresolvers.default.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
           ports:
             - name: web
               containerPort: 80
@@ -34,3 +38,10 @@ spec:
               containerPort: 443
             - name: admin
               containerPort: 8080
+          volumeMounts:
+            - mountPath: /etc/traefik/acme/
+              name: certificates
+      volumes:
+        - name: certificates
+          persistentVolumeClaim:
+            claimName: traefik-certificates
