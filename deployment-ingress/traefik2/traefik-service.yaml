@@ -4,7 +4,9 @@ kind: Service
 metadata:
   name: traefik
 spec:
-  type: NodePort
+  # type: NodePort only working for random ports
+  # lets expose it with the host-ip (hostname -i)
+  externalIPs: [ 10.0.0.242 ] # IP of your centos host
   ports:
     - protocol: TCP
       name: web
