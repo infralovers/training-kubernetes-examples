@@ -4,7 +4,7 @@ metadata:
   name: flask-app
 spec:
   rules:
-    - host: host-X-XX.commandemy.training
+    - host: k8s.cno-user-XX-i-02.commandemy.training
       http:
         paths:
           - backend:
