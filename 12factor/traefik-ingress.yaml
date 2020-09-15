@@ -8,7 +8,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`microk8s-git-01.commandemy.training`) && PathPrefix(`/`)
+    - match: Host(`k8s.cno-user-XX-i-02.commandemy.training`) && PathPrefix(`/`)
       kind: Rule
       services:
         - name: api
@@ -25,7 +25,7 @@ spec:
   tls:
     certResolver: myresolver
   routes:
-    - match: Host(`microk8s-git-01.commandemy.training`) && PathPrefix(`/`)
+    - match: Host(`k8s.cno-user-XX-i-02.commandemy.training`) && PathPrefix(`/`)
       kind: Rule
       services:
         - name: api
