@@ -8,7 +8,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`host-X-XX.commandemy.training`) && PathPrefix(`/`)
+    - match: Host(`k8s.cno-user-XX-i-02.commandemy.training`) && PathPrefix(`/`)
       kind: Rule
       services:
         - name: flask-app

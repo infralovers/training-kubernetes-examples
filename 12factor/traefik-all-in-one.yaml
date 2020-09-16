@@ -169,7 +169,7 @@ metadata:
   name: traefik
 spec:
   externalIPs:
-    - 10.0.0.242 # IP of your cwntos host
+    - 10.0.0.242 # IP of your remote host
   ports:
     - protocol: TCP
       name: web
