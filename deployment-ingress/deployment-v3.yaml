@@ -20,9 +20,6 @@ spec:
           value: "New World"
         ports:
         - containerPort: 80
-        volumeMounts:
-        - name: config-volume
-          mountPath: /app/etc/
       volumes:
       - name: config-volume
         configMap:
