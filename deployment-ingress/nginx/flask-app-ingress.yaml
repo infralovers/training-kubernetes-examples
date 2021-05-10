@@ -1,12 +1,15 @@
+---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: flask-app
+  annotations:
+    kubernetes.io/ingress.class: "public"
 spec:
   rules:
-    - host: k8s.cno-user-XX-i-01.commandemy.training
-      http:
-        paths:
-          - backend:
-              serviceName: flask-app
-              servicePort: 80
+  - host: k8s.cno-user-XX-i-01.commandemy.training
+    http:
+      paths:
+      - backend:
+          serviceName: flask-app
+          servicePort: 80
