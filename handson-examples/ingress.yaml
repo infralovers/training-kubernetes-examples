@@ -6,7 +6,7 @@ metadata:
     kubernetes.io/ingress.class: "public"
 spec:
   rules:
-  - host: k8s.cno-user-02-i-01.commandemy.training
+  - host: k8s.cno-user-XX-i-01.commandemy.training
     http:
       paths:
       - path: /
