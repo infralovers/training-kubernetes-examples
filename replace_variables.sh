@@ -5,3 +5,6 @@ find 12* deployment* handson* -type f -exec sed -i -e "s/<ENV-USER-ID>/$USER_ID/
 
 # Replace <ENV-ANIMAL>
 find 12* deployment* handson* -type f -exec sed -i -e "s/<ENV-ANIMAL>/$ANIMAL/g" {} \;
+
+# Replace <ENV-NAME>
+find 12* deployment* handson* -type f -exec sed -i -e "s/<ENV-NAME>/$ENVIRONMENT/g" {} \;

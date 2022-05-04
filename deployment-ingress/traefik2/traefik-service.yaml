@@ -6,7 +6,7 @@ metadata:
 spec:
   # type: NodePort only working for random ports
   # lets expose it with the host-ip (hostname -i)
-  externalIPs: [ 10.0.0.242 ] # IP of your centos host
+  externalIPs: [ 10.0.0.242 ] # Insert IP address of your first host
   ports:
     - protocol: TCP
       name: web

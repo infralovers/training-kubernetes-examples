@@ -10,7 +10,7 @@ spec:
   tls:
     certResolver: default
   routes:
-    - match: Host(`k8s.cno-user-<ENV-USER-ID>-i-01.<ENV-ANIMAL>.commandemy.training`) && PathPrefix(`/`)
+    - match: Host(`k8s.<ENV-NAME>-user-<ENV-USER-ID>-01.<ENV-ANIMAL>.commandemy.training`) && PathPrefix(`/`)
       kind: Rule
       services:
         - name: flask-app
