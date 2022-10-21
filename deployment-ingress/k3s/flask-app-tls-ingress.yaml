@@ -6,7 +6,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
   rules:
-  - host: k8s.@ENV-NAME-user-XX-01.@ENV-ANIMAL.commandemy.training
+  - host: k8s.<ENV-NAME>-user-<ENV-USER-ID>-01.<ENV-ANIMAL>.commandemy.training
     http:
       paths:
         - path: /
