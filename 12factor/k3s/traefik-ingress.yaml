@@ -6,7 +6,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   rules:
-  - host: k8s.cno-user-<ENV-USER-ID>.<ENV-ANIMAL>.commandemy.training
+  - host: k8s.cno-user-<ENV-USER-ID>-01.<ENV-ANIMAL>.commandemy.training
     http:
       paths:
         - path: /
