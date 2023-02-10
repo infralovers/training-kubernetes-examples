@@ -1,32 +1,57 @@
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: simpleingressroute
-  namespace: default
+  name: api
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
-  entryPoints:
-    - web
-  routes:
-    - match: Host(`k8s.<ENV-NAME>-user-<ENV-USER-ID>-01.<ENV-ANIMAL>.commandemy.training`) && PathPrefix(`/`)
-      kind: Rule
-      services:
-        - name: api
-          port: 3000
+  rules:
+  - host: k8s.cno-user-<ENV-USER-ID>-01.<ENV-ANIMAL>.commandemy.training
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: api
+              port:
+                number: 3000
 ---
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: ingressroutetls
-  namespace: default
+  name: api-tls
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
-  entryPoints:
-    - websecure
-  tls:
-    certResolver: myresolver
-  routes:
-    - match: Host(`k8s.<ENV-NAME>-user-<ENV-USER-ID>-01.<ENV-ANIMAL>.commandemy.training`) && PathPrefix(`/`)
-      kind: Rule
-      services:
-        - name: api
-          port: 3000
+  rules:
+  - host: k8s.cno-user-<ENV-USER-ID>-01.<ENV-ANIMAL>.commandemy.training
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: api
+              port:
+                number: 3000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: traefik-ingress
+  namespace: kube-system
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - host: k8s.cno-user-<ENV-USER-ID>-01.<ENV-ANIMAL>.commandemy.training
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: traefik-dashboard
+                port:
+                  number: 9000

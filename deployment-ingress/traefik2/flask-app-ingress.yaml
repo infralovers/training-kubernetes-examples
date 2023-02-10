@@ -1,15 +1,18 @@
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: simpleingressroute
-  namespace: default
+  name: flask-app
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
-  entryPoints:
-    - web
-  routes:
-    - match: Host(`k8s.<ENV-NAME>-user-<ENV-USER-ID>-01.<ENV-ANIMAL>.commandemy.training`) && PathPrefix(`/`)
-      kind: Rule
-      services:
-        - name: flask-app
-          port: 80
+  rules:
+  - host: k8s.cno-user-<ENV-USER-ID>-01.<ENV-ANIMAL>.commandemy.training
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: flask-app
+              port:
+                number: 80
