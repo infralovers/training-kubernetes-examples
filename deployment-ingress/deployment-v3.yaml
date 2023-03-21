@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: commandemy/flask-app:v3
+        image: ghcr.io/infralovers/training-flask-app:v3
         env:
         - name: NAME
           value: "New World"

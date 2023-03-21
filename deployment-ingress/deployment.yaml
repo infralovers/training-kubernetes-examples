@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: flask-app
-          image: commandemy/flask-app:v1
+          image: ghcr.io/infralovers/training-flask-app:v1
           ports:
             - containerPort: 80

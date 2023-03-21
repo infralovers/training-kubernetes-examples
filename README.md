@@ -1,19 +1,19 @@
-# kubernetes-examples
+# Repository for Training Kubernetes Essentials
 
-## API URL:
+## API URL
 
 ```bash
 kubectl cluster-info | grep 'Kubernetes master' | awk '/http/ {print $NF}'
 ```
 
-## CA certificate:
+## CA certificate
 
 ```bash
 kubectl get secrets
 kubectl get secret <secret name> -o jsonpath="{['data']['ca\.crt']}" | base64 --decode
 ```
 
-## Token:
+## Token
 
 Create file __gitlab-admin-service-account.yaml__:
 
@@ -42,4 +42,3 @@ subjects:
 kubectl apply -f gitlab-admin-service-account.yaml
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep gitlab-admin | awk '{print $1}')
 ```
-
