@@ -2,9 +2,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: flask-app
+  name: flask-app-tls
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
   rules:
   - host: k8s.cno-user-<ENV-USER-ID>-01.<ENV-ANIMAL>.commandemy.training
