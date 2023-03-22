@@ -50,11 +50,10 @@ spec:
     spec:
       containers:
       - name: products
-        image: commandemy/12-factor-app:v0.1
+        image: ghcr.io/infralovers/training-12-factor-app:v0.1
         envFrom:
         - configMapRef:
             name: common-env
         env:
           - name: SERVICES
             value: products
-
